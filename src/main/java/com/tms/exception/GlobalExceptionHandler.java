@@ -32,4 +32,28 @@ public class GlobalExceptionHandler {
         log.error("SeatNotSelectedException: " + ex.getMessage());
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @ExceptionHandler
+    public ResponseEntity<HttpStatus> BookingNotFoundException(BookingNotFoundException ex) {
+        log.error("BookingNotFoundException: " + ex.getMessage());
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<HttpStatus> SeatNotFoundException(SeatNotFoundException ex) {
+        log.error("SeatNotFoundException: " + ex.getMessage());
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<HttpStatus> BookingAlreadyCancelledException(BookingAlreadyCancelledException ex) {
+        log.error("BookingAlreadyCancelledException: " + ex.getMessage());
+        return new ResponseEntity<>(HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler
+    public ResponseEntity<HttpStatus> EventAlreadyPassedException(EventAlreadyPassedException ex) {
+        log.error("EventAlreadyPassedException: " + ex.getMessage());
+        return new ResponseEntity<>(HttpStatus.CONFLICT);
+    }
 }
